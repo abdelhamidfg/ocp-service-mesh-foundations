@@ -36,10 +36,10 @@ public class GatewayController {
              */
             // tracer.activeSpan().setBaggageItem("user-agent", userAgent);
 
-            ResponseEntity<String> responseEntity = restTemplate.getForEntity(remoteURL, String.class);
-            String response = responseEntity.getBody();
-
-            return ResponseEntity.ok(String.format(RESPONSE_STRING_FORMAT, response.trim()));
+          //  ResponseEntity<String> responseEntity = restTemplate.getForEntity(remoteURL, String.class);
+            //String response = responseEntity.getBody();
+           return new ResponseEntity<>("Hello World!", HttpStatus.OK);
+           // return ResponseEntity.ok(String.format(RESPONSE_STRING_FORMAT, response.trim()));
         } catch (HttpStatusCodeException ex) {
             logger.warn("Exception trying to get the response from partner service.", ex);
             return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE)
