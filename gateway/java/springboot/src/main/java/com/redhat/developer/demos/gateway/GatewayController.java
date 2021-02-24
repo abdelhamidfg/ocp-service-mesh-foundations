@@ -28,7 +28,7 @@ public class GatewayController {
         this.restTemplate = restTemplate;
     }
 
-    @RequestMapping("/")
+    @RequestMapping("/hello")
     public ResponseEntity<String> getGateway(@RequestHeader("User-Agent") String userAgent) {
         try {
             /**
@@ -48,6 +48,11 @@ public class GatewayController {
         } catch (RestClientException ex) {
             logger.warn("Exception trying to get the response from partner service.", ex);
             return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE)
+                    .body(String.format(RESPONSE_STRING_FORMAT, ex.getMessage()));
+        }
+        catch (Exception e){
+            logger.warn("Exception general .", ex);
+              return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE)
                     .body(String.format(RESPONSE_STRING_FORMAT, ex.getMessage()));
         }
     }
