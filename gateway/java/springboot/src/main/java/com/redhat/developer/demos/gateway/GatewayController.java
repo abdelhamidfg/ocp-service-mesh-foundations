@@ -35,7 +35,8 @@ public class GatewayController {
              * Set baggage
              */
             // tracer.activeSpan().setBaggageItem("user-agent", userAgent);
-
+          logger.warn("started .....");
+            logger.error("started .....");
           //  ResponseEntity<String> responseEntity = restTemplate.getForEntity(remoteURL, String.class);
             //String response = responseEntity.getBody();
            return new ResponseEntity<>("Hello World!", HttpStatus.OK);
