@@ -21,8 +21,8 @@ public class GatewayController {
 
     private final RestTemplate restTemplate;
 
-    @Value("${partner.api.url:http://partner:8080}")
-    private String remoteURL;
+   // @Value("${partner.api.url:http://partner:8080}")
+    //private String remoteURL;
 
     public GatewayController(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
